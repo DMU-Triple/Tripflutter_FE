@@ -1,15 +1,6 @@
 import React from 'react';
-import Link from 'next/link';
-
-interface Hotel {
-  image: string;
-  oldPrice?: string;
-  price: string;
-  nights: string;
-  name: string;
-  stars: number;
-  ratings: number;
-}
+import HeadingSection from '../HeadingSection/HeadingSection';
+import RecommendationCard from '../RecommendationCard/RecommendationCard';
 
 const hotels = [
     {
@@ -39,64 +30,28 @@ const hotels = [
     },
 ];
 
-const HotelRecommendation: React.FC<{ hotel: Hotel }> = ({ hotel }) => (
-  <div className="col-md-6 col-lg-4 ftco-animate">
-    <div className="project">
-      <div className="img">
-        {hotel.oldPrice && (
-          <div className="vr">
-            <span>특가</span>
-          </div>
-        )}
-        <Link href="hotel.html">
-          <img src={hotel.image} className="img-fluid" alt="Colorlib Template" />
-        </Link>
-      </div>
-      <div className="text">
-        {hotel.oldPrice && (
-          <h4 className="price">
-            <span className="old-price mr-2">{hotel.oldPrice}</span>
-            {hotel.price} / 1박
-          </h4>
-        )}
-        {!hotel.oldPrice && <h4 className="price">{hotel.price} / 1박</h4>}
-        <span>{hotel.nights}</span>
-        <h3>
-          <Link href="hotel.html">{hotel.name}</Link>
-        </h3>
-        <div className="star d-flex clearfix">
-          <div className="mr-auto float-left">
-            {[...Array(hotel.stars)].map((_, index) => (
-              <span key={index} className="ion-ios-star" />
-            ))}
-          </div>
-          <div className="float-right">
-            <span className="rate">
-              <Link href="#">({hotel.ratings})</Link>
-            </span>
-          </div>
-        </div>
-      </div>
-      <Link href={hotel.image} className="icon image-popup d-flex justify-content-center align-items-center">
-        <span className="icon-expand" />
-      </Link>
-    </div>
-  </div>
-);
-
 const HotelRecommendations: React.FC = () => (
   <section className="ftco-section">
     <div className="container">
-      <div className="row justify-content-center pb-5">
-        <div className="col-md-12 heading-section text-center ftco-animate">
-          <span className="subheading">추천 호텔</span>
-          <h2 className="mb-4">가장 가까운 호텔 찾기</h2>
-          <p>트리플러터가 여행 동선을 고려하여 호텔을 추천해드릴께요</p>
-        </div>
-      </div>
+      <HeadingSection 
+        subheading="추천 호텔"
+        heading="가장 가까운 호텔 찾기"
+        description="트리플러터가 여행 동선을 고려하여 호텔을 추천해드릴께요"
+      />
       <div className="row">
         {hotels.map((hotel, index) => (
-          <HotelRecommendation key={index} hotel={hotel} />
+          <RecommendationCard 
+            key={index}
+            image={hotel.image}
+            oldPrice={hotel.oldPrice}
+            newPrice={`${hotel.price} / 1박`}
+            durationOrNights={hotel.nights}
+            name={hotel.name}
+            stars={hotel.stars}
+            reviewsOrRatings={hotel.ratings}
+            link="hotel.html"
+            imageAlt="Hotel Image"
+          />
         ))}
       </div>
     </div>
