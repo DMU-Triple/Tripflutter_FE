@@ -12,7 +12,7 @@ const DestinationSection: React.FC = () => {
           title="여행지 검색"
           description="떠나고 싶은 여행지를 선택하세요. 여행 준비부터 계획까지 트리플러터가 도와드릴께요!"
           buttonText="여행지 검색"
-          buttonLink="#"
+          buttonLink="/destination"
         />
       </div>
     </section>

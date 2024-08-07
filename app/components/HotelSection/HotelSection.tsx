@@ -9,7 +9,7 @@ const HotelSection: React.FC = () => (
         title="전세계 호텔 특가"
         description="트리플러터가 전세계 최저가 호텔을 추천해드릴께요"
         buttonText="호텔 검색"
-        buttonLink="#"
+        buttonLink="/hotel"
       />
     </div>
   </section>

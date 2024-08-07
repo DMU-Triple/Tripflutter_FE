@@ -78,7 +78,7 @@ const TravelDestinationsSection: React.FC = () => (
             name={destination.name}
             stars={destination.stars}
             reviewsOrRatings={destination.reviews}
-            link="destination.html"
+            link="/destination-detail"
             imageAlt="Destination Image"
           />
         ))}

@@ -49,7 +49,7 @@ const HotelRecommendations: React.FC = () => (
             name={hotel.name}
             stars={hotel.stars}
             reviewsOrRatings={hotel.ratings}
-            link="hotel.html"
+            link="/hotel"
             imageAlt="Hotel Image"
           />
         ))}

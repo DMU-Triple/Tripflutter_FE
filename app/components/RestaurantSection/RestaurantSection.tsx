@@ -25,7 +25,7 @@ export const restaurantsData: Restaurant[] = [
     name: '레스토 바',
     rating: 5,
     numberOfReviews: 120,
-    link: 'project.html',
+    link: '/restaurant',
   },
   {
     id: 2,
@@ -36,7 +36,7 @@ export const restaurantsData: Restaurant[] = [
     name: '레스토 바',
     rating: 5,
     numberOfReviews: 120,
-    link: 'project.html',
+    link: '/restaurant',
   },
   {
     id: 3,
@@ -47,7 +47,7 @@ export const restaurantsData: Restaurant[] = [
     name: '레스토 바',
     rating: 5,
     numberOfReviews: 120,
-    link: 'project.html',
+    link: '/restaurant',
   },
 ];
 
