@@ -1,5 +1,4 @@
 import React from 'react';
-import Link from 'next/link';
 import HeadingSection from '../HeadingSection/HeadingSection';
 import RecommendationCard from '../RecommendationCard/RecommendationCard';
 
@@ -25,7 +24,7 @@ export const restaurantsData: Restaurant[] = [
     name: '레스토 바',
     rating: 5,
     numberOfReviews: 120,
-    link: '/restaurant',
+    link: '/restaurant-detail',
   },
   {
     id: 2,
@@ -36,7 +35,7 @@ export const restaurantsData: Restaurant[] = [
     name: '레스토 바',
     rating: 5,
     numberOfReviews: 120,
-    link: '/restaurant',
+    link: '/restaurant-detail',
   },
   {
     id: 3,
@@ -47,7 +46,7 @@ export const restaurantsData: Restaurant[] = [
     name: '레스토 바',
     rating: 5,
     numberOfReviews: 120,
-    link: '/restaurant',
+    link: '/restaurant-detail',
   },
 ];
 
