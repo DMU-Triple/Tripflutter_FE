@@ -13,7 +13,7 @@ interface BlogEntryProps {
 const BlogEntry: React.FC<BlogEntryProps> = ({ imageUrl, date, title, excerpt, author, commentsCount }) => (
   <div className="col-md-6 col-lg-4 d-flex ftco-animate">
     <div className="blog-entry">
-      <Link href="/blog" className="block-20" style={{ backgroundImage: `url(${imageUrl})` }} />
+      <Link href="/blog-detail" className="block-20" style={{ backgroundImage: `url(${imageUrl})` }} />
       <div className="text float-right d-block">
         <div className="d-flex align-items-center pt-2 mb-4 topp">
           <div className="one mr-2">
@@ -25,12 +25,12 @@ const BlogEntry: React.FC<BlogEntryProps> = ({ imageUrl, date, title, excerpt, a
           </div>
         </div>
         <h3 className="heading">
-          <Link href="/blog">{title}</Link>
+          <Link href="/blog-detail">{title}</Link>
         </h3>
         <p>{excerpt}</p>
         <div className="d-flex align-items-center mt-4 meta">
           <p className="mb-0">
-            <Link href="/blog" className="btn btn-primary">
+            <Link href="/blog-detail" className="btn btn-primary">
                 상세보기 <span className="ion-ios-arrow-round-forward" />
             </Link>
           </p>
