@@ -1,6 +1,6 @@
 import React from 'react';
 import HeadingSection from '../HeadingSection/HeadingSection';
-import RecommendationCard from '../RecommendationCard/RecommendationCard';
+import RecommendationCard from './RecommendationCard';
 
 const hotels = [
     {
@@ -49,7 +49,7 @@ const HotelRecommendations: React.FC = () => (
             name={hotel.name}
             stars={hotel.stars}
             reviewsOrRatings={hotel.ratings}
-            link="/hotel"
+            link="/hotel-detail"
             imageAlt="Hotel Image"
           />
         ))}

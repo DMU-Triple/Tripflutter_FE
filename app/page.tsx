@@ -5,7 +5,7 @@ import ServicesSection from "./components/ServicesSection/ServicesSection";
 import DestinationSection from "./components/DestinationSection/DestinationSection";
 import TravelDestinationsSection from "./components/TravelDestinationsSection/TravelDestinationsSection";
 import HotelSection from "./components/HotelSection/HotelSection";
-import HotelRecommendations from "./components/HotelRecommendations/HotelRecommendations";
+import HotelRecommendations from "./components/RecommendationCard/HotelRecommendations";
 import TestimonialSection from "./components/TestimonialSection/TestimonialSection";
 import RestaurantSection from "./components/RestaurantSection/RestaurantSection";
 import BlogSection from "./components/BlogSection/BlogSection";

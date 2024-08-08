@@ -1,7 +1,7 @@
 import React from 'react';
 import Banner from '../components/Banner/Banner';
 import SearchSection from "../components/SearchSection/SearchSection";
-import HotelRecommendations from "../components/HotelRecommendations/HotelRecommendations";
+import HotelRecommendations from "../components/RecommendationCard/HotelRecommendations";
 
 const HotelPage: React.FC = () => {
   const breadcrumb = [
