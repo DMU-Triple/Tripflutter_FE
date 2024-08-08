@@ -1,18 +1,17 @@
 // components/SearchSection.tsx
 import React from 'react';
+import HeadingSection from '../HeadingSection/HeadingSection';
 import FormField from './FormField';
 import FormFieldSelect from './FormFieldSelect';
 
 const SearchSection: React.FC = () => (
   <section className="ftco-section ftco-no-pb ftco-no-pt">
     <div className="container">
-      <div className="row justify-content-center pb-0 pb-mb-5 pt-5 pt-md-0">
-        <div className="col-md-12 heading-section ftco-animate">
-          <span className="subheading">트리플러터와 떠나요</span>
-          <h2 className="mb-4">어디로 가고 싶나요?</h2>
-          <p>트리플러터가 쉽고 빠르게 여행 계획을 세워드릴께요</p>
-        </div>
-      </div>
+      <HeadingSection 
+        subheading="트리플러터와 떠나요"
+        heading="어디로 가고 싶나요?"
+        description="트리플러터가 쉽고 빠르게 여행 계획을 세워드릴께요"
+      />
       <div className="row">
         <div className="col-md-12">
           <div className="search-wrap-1 ftco-animate p-4">

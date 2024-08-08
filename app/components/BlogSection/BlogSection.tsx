@@ -1,4 +1,5 @@
 import React from 'react';
+import HeadingSection from '../HeadingSection/HeadingSection';
 import BlogEntry from './BlogEntry';
 
 interface BlogEntry {
@@ -45,13 +46,11 @@ const BlogSection: React.FC = () => {
   return (
     <section className="ftco-section bg-light" id="blog-section">
       <div className="container">
-        <div className="row justify-content-center mb-5 pb-5">
-          <div className="col-md-7 heading-section text-center ftco-animate">
-            <span className="subheading">추천 블로그</span>
-            <h2 className="mb-4">지금 가장 핫한 여행 블로그</h2>
-            <p>트리플러터가 지금 가장 한핫 인기 블로그를 추천해드릴께요</p>
-          </div>
-        </div>
+        <HeadingSection 
+          subheading="추천 블로그"
+          heading="지금 가장 핫한 여행 블로그"
+          description="트리플러터가 지금 가장 한핫 인기 블로그를 추천해드릴께요"
+        />
         <div className="row d-flex">
           {blogEntries.map((entry) => (
             <BlogEntry
