@@ -1,17 +1,8 @@
 import React from 'react';
-import Link from 'next/link';
+import HeadingSection from '../HeadingSection/HeadingSection';
+import RecommendationCard from '../RecommendationCard/RecommendationCard';
 
-interface Destination {
-  image: string;
-  oldPrice: string;
-  newPrice: string;
-  duration: string;
-  name: string;
-  stars: number;
-  reviews: number;
-}
-
-const destinations: Destination[] = [
+const destinations = [
   {
     image: 'images/destination-1.jpg',
     oldPrice: '왕복 50만원부터',
@@ -68,65 +59,32 @@ const destinations: Destination[] = [
   },
 ];
 
-const TravelDestinationsSection: React.FC = () => {
-  return (
-    <section className="ftco-section">
-      <div className="container">
-        <div className="row justify-content-center pb-5">
-          <div className="col-md-12 heading-section text-center ftco-animate">
-            <span className="subheading">여행지 추천</span>
-            <h2 className="mb-4">지금 여행가기 좋은 나라</h2>
-            <p>
-              트리플러터가 인기있는 여행지를 추천해드릴께요
-            </p>
-          </div>
-        </div>
-        <div className="row">
-          {destinations.map((destination, index) => (
-            <div key={index} className="col-md-6 col-lg-4 ftco-animate">
-              <div className="project">
-                <div className="img">
-                  <div className="vr">
-                    {destination.oldPrice && <span>특가</span>}
-                  </div>
-                  <Link href="destination.html">
-                    <img src={destination.image} className="img-fluid" alt="Destination Image" />
-                  </Link>
-                </div>
-                <div className="text">
-                  <h4 className="price">
-                    {destination.oldPrice && (
-                      <span className="old-price mr-2">{destination.oldPrice}</span>
-                    )}
-                    {destination.newPrice}
-                  </h4>
-                  <span>{destination.duration}</span>
-                  <h3>
-                    <Link href="destination.html">{destination.name}</Link>
-                  </h3>
-                  <div className="star d-flex clearfix">
-                    <div className="mr-auto float-left">
-                      {Array.from({ length: destination.stars }, (_, index) => (
-                        <span key={index} className="ion-ios-star" />
-                      ))}
-                    </div>
-                    <div className="float-right">
-                      <span className="rate">
-                        <Link href="#">({destination.reviews})</Link>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <Link href={destination.image} className="icon image-popup d-flex justify-content-center align-items-center">
-                  <span className="icon-expand" />
-                </Link>
-              </div>
-            </div>
-          ))}
-        </div>
+const TravelDestinationsSection: React.FC = () => (
+  <section className="ftco-section">
+    <div className="container">
+      <HeadingSection 
+        subheading="추천 여행지"
+        heading="지금 여행가기 좋은 나라"
+        description="트리플러터가 인기있는 여행지를 추천해드릴께요"
+      />
+      <div className="row">
+        {destinations.map((destination, index) => (
+          <RecommendationCard 
+            key={index}
+            image={destination.image}
+            oldPrice={destination.oldPrice}
+            newPrice={destination.newPrice}
+            durationOrNights={destination.duration}
+            name={destination.name}
+            stars={destination.stars}
+            reviewsOrRatings={destination.reviews}
+            link="/destination-detail"
+            imageAlt="Destination Image"
+          />
+        ))}
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 export default TravelDestinationsSection;

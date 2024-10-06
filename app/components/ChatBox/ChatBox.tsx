@@ -32,12 +32,36 @@ const ChatBox: React.FC = () => {
   ]);
   const [currentChatId, setCurrentChatId] = useState<number>(1);
   const [newMessage, setNewMessage] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>(false);
   const messageEndRef = useRef<HTMLDivElement>(null);
 
   const currentChat = chats.find((chat) => chat.id === currentChatId);
 
-  const sendMessage = () => {
+  // OpenAI API 호출 함수
+  const callOpenAI = async (message: string) => {
+    setLoading(true);
+    try {
+      const response = await fetch("/api/openai", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ message }),
+      });
+
+      const data = await response.json();
+      return data.reply;
+    } catch (error) {
+      console.error("Error calling OpenAI API:", error);
+      return "Error 발생: OpenAI API 호출 실패.";
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const sendMessage = async () => {
     if (newMessage.trim() && currentChat) {
+      // 사용자의 메시지를 추가
       const updatedChats = chats.map((chat) =>
         chat.id === currentChatId
           ? { ...chat, messages: [...chat.messages, { user: 'You', text: newMessage }] }
@@ -45,6 +69,17 @@ const ChatBox: React.FC = () => {
       );
       setChats(updatedChats);
       setNewMessage('');
+
+      // OpenAI API를 호출하여 응답 받기
+      const reply = await callOpenAI(newMessage);
+
+      // OpenAI의 응답을 추가
+      const updatedChatsWithReply = updatedChats.map((chat) =>
+        chat.id === currentChatId
+          ? { ...chat, messages: [...chat.messages, { user: 'TripFlutter', text: reply }] }
+          : chat
+      );
+      setChats(updatedChatsWithReply);
     }
   };
 
@@ -122,8 +157,8 @@ const ChatBox: React.FC = () => {
             className={styles.inputField}
             placeholder="메시지를 입력하세요..."
           />
-          <button className={styles.buttonStyle} onClick={sendMessage}>
-            보내기
+          <button className={styles.buttonStyle} onClick={sendMessage} disabled={loading}>
+            {loading ? "응답 중..." : "보내기"}
           </button>
         </div>
       </div>
